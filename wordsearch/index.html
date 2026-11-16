@@ -17,12 +17,23 @@
 <body>
 <div id="loading">Loading…</div>
 <script>
-    // main() removes #loading once the app runs; if it is still there, this browser cannot run the app.
-    setTimeout(function () {
-        var el = document.getElementById("loading");
-        if (el) el.textContent = "This browser is not supported. Please use a recent version of Safari or Chrome.";
-    }, 20000);
+    var UNSUPPORTED = "This browser is not supported. Please use a recent version of Safari or Chrome.";
+    // The app draws with WebGL2. Without it the page would stay blank, so say so and do not load the app.
+    var canvas = document.createElement("canvas");
+    var hasWebGl2 = false;
+    try { hasWebGl2 = !!canvas.getContext("webgl2"); } catch (e) { hasWebGl2 = false; }
+    if (!hasWebGl2) {
+        document.getElementById("loading").textContent = UNSUPPORTED;
+    } else {
+        // main() removes #loading once the app runs; if it is still there, this browser cannot run the app.
+        setTimeout(function () {
+            var el = document.getElementById("loading");
+            if (el) el.textContent = UNSUPPORTED;
+        }, 20000);
+        var script = document.createElement("script");
+        script.src = "wordsearch.js";
+        document.body.appendChild(script);
+    }
 </script>
-<script type="application/javascript" src="wordsearch.js"></script>
 </body>
 </html>
