@@ -19,14 +19,16 @@ color: #ffffff;
 height: 100%;
 }
 
+/* Fixed, like the background image, so the tint stays put and covers the whole window while scrolling. */
 #transy{
+position: fixed;
+top: 0;
+left: 0;
 width: 100%;
 height: 100%;
-float: left;
 background: #08233e;
 opacity: 0.8;
 filter: alpha(opacity=80);
-position: absolute;
 z-index: -1;
 }
 
