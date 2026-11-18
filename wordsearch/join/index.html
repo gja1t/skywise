@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search</title>
+    <!-- An invitation link. With the Android app installed the link opens the app and this page is
+         never shown. Otherwise it forwards to the web version and keeps the ?room=... part. -->
+    <script>location.replace("../" + location.search);</script>
+</head>
+<body>
+<p><a id="go" href="../">Open Word Search</a></p>
+<script>document.getElementById("go").href = "../" + location.search;</script>
+</body>
+</html>

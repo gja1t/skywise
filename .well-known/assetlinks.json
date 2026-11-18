@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "nl.skywise.WordSearch",
+      "sha256_cert_fingerprints": [
+        "5A:14:32:40:C0:93:7D:65:B8:FB:66:6B:87:7F:27:71:EA:4B:74:E9:F6:9F:BA:39:F7:B0:48:A3:76:78:5F:AA"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "nl.skywise.WordSearch.debug",
+      "sha256_cert_fingerprints": [
+        "B1:2E:CA:BA:59:23:3D:65:67:7A:CE:B7:BF:53:48:D6:FD:22:79:03:A0:69:FF:0D:8E:C2:D5:DF:0C:05:31:D0"
+      ]
+    }
+  }
+]
