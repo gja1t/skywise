@@ -30,9 +30,19 @@
             var el = document.getElementById("loading");
             if (el) el.textContent = UNSUPPORTED;
         }, 20000);
-        var script = document.createElement("script");
-        script.src = "wordsearch.js";
-        document.body.appendChild(script);
+        // version.txt is written when the site is published (tools/publish_web.sh) and fetched past
+        // the browser cache. Its value goes into the address of the code and of every resource, so a
+        // browser never mixes files of two releases. Without the file the app loads as before.
+        var start = function (version) {
+            window.WS_BUILD = version;
+            var script = document.createElement("script");
+            script.src = version ? "wordsearch.js?v=" + encodeURIComponent(version) : "wordsearch.js";
+            document.body.appendChild(script);
+        };
+        fetch("version.txt", { cache: "no-store" })
+            .then(function (r) { return r.ok ? r.text() : ""; })
+            .then(function (t) { start(/^[A-Za-z0-9._-]{1,40}$/.test(t.trim()) ? t.trim() : ""); })
+            .catch(function () { start(""); });
     }
 </script>
 </body>
